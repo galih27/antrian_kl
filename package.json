@@ -2,10 +2,9 @@
   "name": "antrian-digital",
   "version": "1.0.0",
   "scripts": {
-    "build": "echo 'Building...'"
+    "build": "echo 'No build step required for PHP'"
   },
-  "dependencies": {},
   "devDependencies": {
-    "vercel-php": "^0.6.0"
+    "@vercel/php": "0.6.0"
   }
 }
