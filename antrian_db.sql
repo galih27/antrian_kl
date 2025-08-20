@@ -1,0 +1,7 @@
+CREATE TABLE antrian (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nomor VARCHAR(10) NOT NULL,
+    nama VARCHAR(100) NOT NULL,
+    jenis CHAR(1) NOT NULL COMMENT 'A=Umum, B=Prioritas, C=Khusus',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

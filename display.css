@@ -1,0 +1,30 @@
+/* Gaya untuk display antrian (diambil dari file sebelumnya dan ditambah) */
+
+.loket-info {
+    margin-top: 20px;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.loket {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 5px 0;
+    background: #f1f1f1;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.current-antrian .jenis {
+    display: inline-block;
+    font-size: 1.5rem;
+    background: #3a7bd5;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 30px;
+    margin-left: 10px;
+    vertical-align: middle;
+}
