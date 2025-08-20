@@ -41,7 +41,7 @@ jobs:
         with:
           project_id: ${{ vars.NEON_PROJECT_ID }}
           branch_name: preview/pr-${{ github.event.number }}-${{ needs.setup.outputs.branch }}
-          api_key: ${{ secrets.NEON_API_KEY }}
+          api_key: ${{ napi_zwoie5s586vxdx8w5ilj0y5pt6zwtumzsy18ibrp6eke3eqk5r8aipcmj69318zn }}
 
 # The step above creates a new Neon branch.
 # You may want to do something with the new branch, such as run migrations, run tests
