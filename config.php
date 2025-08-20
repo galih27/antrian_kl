@@ -1,19 +1,30 @@
 <?php
-$host = 'localhost';
-$user = 'root';
-$password = '';
-$dbname = 'antrian_db';
-// Buat koneksi
-$conn = new mysqli($host, $user, $password, $dbname);
-// Cek koneksi
-if ($conn->connect_error) {
-    die("Koneksi gagal: " . $conn->connect_error);
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST, DELETE, OPTIONS');
+header('Access-Control-Allow-Headers: Content-Type');
+
+// Konfigurasi PostgreSQL
+$host = 'your-postgres-host';
+$port = '5432';
+$dbname = 'antrian';
+$username = $_ENV['DB_USERNAME'];
+$password = $_ENV['DB_PASSWORD'];
+
+// Buat koneksi PostgreSQL
+try {
+    $conn = new PDO(
+        "pgsql:host=$host;port=$port;dbname=$dbname",
+        $username,
+        $password,
+        [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
+    );
+} catch (PDOException $e) {
+    header('Content-Type: application/json');
+    echo json_encode(["error" => "Database connection failed: " . $e->getMessage()]);
+    exit;
 }
-// Set charset
-$conn->set_charset("utf8");
-// Fungsi untuk sanitasi input
+
 function sanitize($data) {
-    global $conn;
-    return $conn->real_escape_string(htmlspecialchars(strip_tags(trim($data))));
+    return htmlspecialchars(strip_tags(trim($data)));
 }
 ?>
